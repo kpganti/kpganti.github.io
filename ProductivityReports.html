@@ -1,0 +1,136 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Productivity Reports</title>
+</head>
+<body style="font-family:'Times New Roman', Times, serif; font-size: small; color:steelblue">
+    <p style="text-align:center;">
+        <font size="6">
+            Productivity Reports
+        </font><br>
+        <font size="3">version 1.0</font>
+    </p>
+
+
+    <p>
+    &emsp;This set of dashboards focus on the productivity of the radiologist whose dictations are contained in the exam data.  The radiologist data and shift target data are extracted from the radiologist_information, radiologist_admin_credits, and the shift_targets tables.
+    Following are the dashboards in this release:
+</p>
+    <p>
+        &emsp;<b><font size="4">Productivity per Rad:</font></b> This dashboard highlights the focuses on the productivity of individual radiologists in their individual shifts. Data in this dashboard are limited to full shifts:
+        &emsp;<ul>
+            <li><b>Full shift:</b> a named shift longer than 7.5 hours and all undefined shift dictations dictated within an hour the start and stop shift times.</li>
+            There are three figures (top, middle, and bottom) on the right and one table on the left. The top plot is controlled by its own data range, bringing the focus to a summary of shifts worked in the previous month, while the other two plots and the table are controlled by the date range in filter area on the right. The table presents a summary statistic of the shifts in the selected periods of time based on each individual radiologist. The current summary statistics:
+            <li><b>Mean:</b> Average value of measure for the stated time period, susceptible to extreme outliers,</li>
+            <li>
+                <b>Median:</b> Middle value of measure for the stated time period, unsusceptible to extreme outliers,
+            </li>
+
+            <li><b>Minimum:</b> Lowest measure value for stated time period,</li>
+
+            <li><b>Maximum:</b> Highest measure value for stated time period,</li>
+            &emsp;can be applied to any of the measure types:
+            <li><b>EVU + Admin Credit:</b> Lucid assigned EVU and any shift administration credits,</li>
+            <li><b>EVU:</b> Lucid assigned EVU,</li>
+            <li><b>RVU:</b> US Medicare assigned RVU.</li>
+            &emsp;The final results are color-coded based on the shift-target:
+
+            <li><b>Shift Target:</b> Weighted average of targets for shifts worked throughout the time period,</li>
+            with blue numbers indicating the summary statistic of that measure is above the shift target, orange signifying that the metric is within 10% of the target and red numbers indicating values that are well below the shift target.
+
+            &emsp;The plots show different aspects of the productivity. The top plot shows the cumulative shifts in a month based on their productivity:
+            <li><b>Productivity:</b> A shift is productive (positive) if its target is met and unproductive (negative) if that target is not met.</li>
+        </ul>
+        &emsp;Each bar, with its positive and negative components represents a radiologist. The details of that radiologist and their shift are shown on hoover over. Radiologists are sorted not alphabetically but by the number of productive shifts worked in the time period. The middle plots shows the distribution of EVUs dictated in a shift over the entire period displayed in the table. For example, if the table shows the “Last 5 months” (current default) then all dictations in that five months period are displayed in this histogram. The vertical axis is the number of dictations in each bin.  The bottom plot shows the same data but separated into days of the week.  Here the vertical axis is the appropriate statistical summary of the desired metric.
+
+        <br>&emsp;In addition to the to the discussed data fields, the following filters are also available:
+        <ul>
+            <li><b>Distribution Type:</b> Time unit to display in the table – Quarter, Month, Week, Day</li>
+            <li>
+                <b>Site Code:</b> Filter data by the site scodes to look only at desired locations</li>
+            <li>
+                <b>Radiologist Name:</b> Filter data by radiologist name</li>
+            <li>
+                <b>Procedure Modality:</b> Filter data by modality</li>
+            <li>
+                <b>Subspecialty:</b> Filter data by recorded subspecialty</li>
+            <li>
+                <b>Shift Name:</b> Filter data by named shifts</li>
+            <li>
+                <b>New Hire:</b> Filter data by whether a rad has been employed for six months or less</li>
+            <li><b>Radiologist Category:</b> Breaks radiologists into general and surgical radiologists based on the radiologist’s categorization in the radiologist information table. Note: surgical radiologists are primarily neuro and vascular radiologists.</li>
+</ul>
+    </p>
+    <p>
+        &emsp;
+        <b>
+            <font size="4">
+                Partial and Non-Shift Dictations:
+            </font>
+        </b>Follows table description for the productivity per rad page with the following exceptions:
+        &emsp;<ul>
+            <li>Table on the Left only includes partial shifts that are less than 7.5 hours in duration</li>
+            <li>Table on the right looks at all dictations that are not included in a named shift and thus do not appear anywhere else in the report</li>
+            <li>No shift targets are considered</li>
+        </ul>
+    </p>
+    <p>
+        &emsp;
+        <b>
+            <font size="4">
+                Productivity per Hour:
+            </font>
+        </b>Shows the average of the selected measure over the selected time range by hour of the day, broken into Day, evening, and Night shifts. All filters are as described above in Productivity per Rad. An additional filter to separate data into weekdays and weekends is added, based on the standard Gregorian calendar.
+    </p>
+    <p>
+        &emsp;
+        <b>
+            <font size="4">
+                Practice Productivity:
+            </font>
+        </b>This dashboard looks at the 10,000ft view of productivity via two charts, top left and bottom, and a chart, top right.
+        <br />&emsp;
+        The top right chart looks at the balance of the workload by practice as a stacked chart. The scale of this chart can be set by selecting a calculation type:
+        <ul>
+            <li>Sum of RVU: total number of RVUs dictated</li>
+            <li>
+                Sum of EVU: total number of EVUs dictated
+            </li>
+            <li>
+                Fraction of RVU: Fraction of all RVUs dictated
+            </li>
+            <li>
+                Fraction of EVU: Fraction of all EVUs dictated
+            </li>
+        </ul>
+        <br />&emsp;
+        Each site is measured as an individual with all individuals that have a fraction of EVUs or RVUs, out of all Lucid EVUs or RVUs, that is above the Percentage Cutoff, default 2%.
+        <br />&emsp;
+        The bottom chart displays the fractional productivity:
+        <ul><li>Fractional Productivity: Percentage of shifts that achieved the shift target,</li></ul>
+        &emsp;of each radiologist and the difference between the current value and the previous year. This can be looked at for a month or a year, using the select time frame filter, and for the current or previous time period, using the select period filter.
+        Finally, the chart on the top right looks at tabular comparisons between RVUs and EVUs for the selected time range. The various filters follow the same descriptions as on the Productivity per Rad dashboard.
+    </p>
+    <p>
+        &emsp;
+        <b>
+            <font size="4">
+                EVU vs Dictation Time:
+            </font>
+        </b>This dashboard enables the investigation of the assigned EVU values through the metric of time per EVU. The time used in this dashboard is defined as the time to dictate the study, i.e., the time the dictation was signed less the time the dictation was started, not when the dictation was available to be read. These times are not always in the system resulting in a 0 time duration; these dictations are not included but they are called out at the top left of the page.
+        <br />&emsp;
+        The center and left figures are paired box charts. These display the general statistical range of dictations in the selected filters, date, site, procedure, subspecialty, and for the center plot radiologist. This permits a comparison of values. For example, the entirety of Lucid compared to a single site in the same time span; or, the to compare last year to last month; or, to compare one subspecialty to another etc.
+        <br />&emsp;
+        The right plot uses the same metric, Time/EVU but plots the average value for each procedure description. Note these are plotted on a logarithmic scale to help visualize the full range of values.
+    </p>
+    <p>
+        &emsp;
+        <b>
+            <font size="4">
+                Daily Shift Totals:
+            </font>
+        </b>This dashboard provides the daily shift total of EVU for each radiologist based on the reported shift in the system, i.e., no shifts are wrapped together based on the start or stop times of a period but are shown as described in the raw data. However, undefined shifts will only be shown if the total sum of EVUs are greater than the minimum fixed sum of date by rad.
+
+</body>
+</html>
