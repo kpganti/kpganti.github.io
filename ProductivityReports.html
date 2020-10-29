@@ -14,13 +14,13 @@
 
 
     <p>
-    &emsp;This set of dashboards focus on the productivity of the radiologist whose dictations are contained in the exam data.  The radiologist data and shift target data are extracted from the radiologist_information, radiologist_admin_credits, and the shift_targets tables.
-    Following are the dashboards in this release:
-</p>
+        &emsp;This set of dashboards focus on the productivity of the radiologist whose dictations are contained in the exam data.  The radiologist data and shift target data are extracted from the radiologist_information, radiologist_admin_credits, and the shift_targets tables.
+        Following are the dashboards in this release:
+    </p>
     <p>
         &emsp;<b><font size="4">Productivity per Rad:</font></b> This dashboard highlights the focuses on the productivity of individual radiologists in their individual shifts. Data in this dashboard are limited to full shifts:
         &emsp;<ul>
-            <li><b>Full shift:</b> a named shift longer than 7.5 hours and all undefined shift dictations dictated within an hour the start and stop shift times.</li>
+            <li><b>Full shift:</b> a named shift longer than 7.5 hours and all undefined shift dictations dictated within an hour of the start and stop shift times.</li>
             There are three figures (top, middle, and bottom) on the right and one table on the left. The top plot is controlled by its own data range, bringing the focus to a summary of shifts worked in the previous month, while the other two plots and the table are controlled by the date range in filter area on the right. The table presents a summary statistic of the shifts in the selected periods of time based on each individual radiologist. The current summary statistics:
             <li><b>Mean:</b> Average value of measure for the stated time period, susceptible to extreme outliers,</li>
             <li>
@@ -46,21 +46,32 @@
 
         <br>&emsp;In addition to the to the discussed data fields, the following filters are also available:
         <ul>
-            <li><b>Distribution Type:</b> Time unit to display in the table – Quarter, Month, Week, Day</li>
+            <li><b>Distribution Type:</b> Time unit to display in the table – Quarter, Month, Week, Day.</li>
             <li>
-                <b>Site Code:</b> Filter data by the site scodes to look only at desired locations</li>
+                <b>Radiologist Name:</b> Filter data by radiologist name.
+            </li>
             <li>
-                <b>Radiologist Name:</b> Filter data by radiologist name</li>
+                <b>New Hire:</b> Filter data by whether a rad has been employed for six months or less.
+            </li>
             <li>
-                <b>Procedure Modality:</b> Filter data by modality</li>
+                <b>Procedure Modality:</b> Filter data by modality.
+            </li>
             <li>
-                <b>Subspecialty:</b> Filter data by recorded subspecialty</li>
+                <b>Board Certification:</b> Breaks radiologists into general and surgical radiologists based on the radiologist’s board certification in the radiologist information table.
+            </li>
             <li>
-                <b>Shift Name:</b> Filter data by named shifts</li>
+                <b>Fellowship Training:</b> Filter radiologists by their fellowship specialization.
+            </li>
             <li>
-                <b>New Hire:</b> Filter data by whether a rad has been employed for six months or less</li>
-            <li><b>Radiologist Category:</b> Breaks radiologists into general and surgical radiologists based on the radiologist’s categorization in the radiologist information table. Note: surgical radiologists are primarily neuro and vascular radiologists.</li>
-</ul>
+                <b>Scheduled Category:</b> Filter data by assigned subspecialty.
+            </li>
+            <li>
+                <b>Practice Affiliation:</b> Filter Radiologists by their assigned practice.
+            </li>
+            <li>
+                <b>Partner Status:</b> Filter Radiologists by their employment type.
+            </li>
+        </ul>
     </p>
     <p>
         &emsp;
@@ -105,10 +116,10 @@
             </li>
         </ul>
         <br />&emsp;
-        Each site is measured as an individual with all individuals that have a fraction of EVUs or RVUs, out of all Lucid EVUs or RVUs, that is above the Percentage Cutoff, default 2%.
+        Each category, site or practice, based on the selected button, is measured as an individual with all individuals that have a fraction of EVUs or RVUs, out of all Lucid EVUs or RVUs, that is above the Percentage Cutoff, default 2%.
         <br />&emsp;
         The bottom chart displays the fractional productivity:
-        <ul><li>Fractional Productivity: Percentage of shifts that achieved the shift target,</li></ul>
+        <ul><li>Fractional Productivity: Percentage of shifts that achieved the shift target</li></ul>
         &emsp;of each radiologist and the difference between the current value and the previous year. This can be looked at for a month or a year, using the select time frame filter, and for the current or previous time period, using the select period filter.
         Finally, the chart on the top right looks at tabular comparisons between RVUs and EVUs for the selected time range. The various filters follow the same descriptions as on the Productivity per Rad dashboard.
     </p>
@@ -119,6 +130,23 @@
                 Daily Shift Totals:
             </font>
         </b>This dashboard provides the daily shift total of EVU for each radiologist based on the reported shift in the system, i.e., no shifts are wrapped together based on the start or stop times of a period but are shown as described in the raw data. However, undefined shifts will only be shown if the total sum of EVUs are greater than the minimum fixed sum of date by rad.
-
+    </p>
+    <p>
+        &emsp;
+        <b>
+            <font size="4">
+                EVU: Daily relative to Avg:
+            </font>
+        </b>This dashboard provides a list of radiologists and the shifts worked for the selected date (default is the previous day). These numbers are presented along with the Non-Shift EVUs dictated by that radiologist on the selected date, the 3-month, default can be changed, average of EVUs worked by all radiologists on that shift, and the difference between the EVUs achieved on the selected date and the shift average.
+        </b></b>Standard filters are available.
+    </p>
+    <p>
+        &emsp;
+        <b>
+            <font size="4">
+                EVU and RVU Trends:
+            </font>
+        </b>This dashboard provides general year-over-year trends for EVU or RVU, based on selection of measure type. Basic filters are available.
+    </p>
 </body>
 </html>
