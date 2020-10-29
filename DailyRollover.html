@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <title>Daily Rollover</title>
 </head>
-<body style="font-family:'Times New Roman', Times, serif; font-size: small; color:steelblue">
+<body style="font-family:'Times New Roman', Times, serif; font-size: medium; color:steelblue">
     <p style="text-align:center;">
         <font size="6">
             Daily Rollover
@@ -12,75 +12,80 @@
         <font size="3">version 1.0</font>
     </p>
     <p>
-    &emsp; This set of dashboards focuses on the exams whose dictations are rolled over into multiple days. 
-    Dashboards accepts parameter ‘Reference Hour’ which can be used for how many hours we can add in Rollover calculation. 
-    <br>
-    &emsp; All dashboards in this report contains two types views Creation View and Dictation View, 
-        Creation View shows the exams on the date of creation and Dictation View shows the exams on the date of dictation.
+        &emsp; This set of dashboards focuses on the exams whose dictations are not completed on the same day as the exam was performed.
+        The main parameter used across these dashboards is the ‘Reference Hour’, the hour of the day at which a new date begins on the radiologists shift calendar.
+        The selection of reference hour can impact which reports are seen as rollover exams.
+        <br>
+        &emsp; All plots in this report can be visualized in either Creation View or Dictation View. Creation View shows the exams based on their date of creation whereas
+        Dictation View shows the exams relative to the date of dictation. This option, which is labeled as Rollover View, is thus a choice of how to attribute the exams that
+        existed on two days.
     </p>
 
     <p>
-    Following are the details of important data fields used in this report,
-    <ul>
-    <li><b>Rollover:</b> Exams created and dictated on the same day.</b></li>
-    <li><b>Not Rollover:</b> Exams whose dictations are rolled over into multiple days.</b></li>
-    <li><b>Date Of Exam: </b> Date in which exam is created.</b></li>
-    <li><b>Exam Count: </b> Count of total number of exams in a day.</b></li>
-    <li><b>EVU:</b>Lucid assigned EVU</b></li>
-    <li><b>RVU:</b>  US Medicare assigned RVU.</li>
-    <li><b>Rollover View:</b>  Parameter to categorize views into two, Creation View and Dictation View.</li>
-    <li><b>Rollover View Date:</b>  Calculated date based on Rollover View parameter, In case of Creation View, the filter will work based on the Exam Date, similarly in case of Dictation View it will be the Dictation Date.</li>
-    <li><b>Reference Hour:</b>  Rollover Calculation will be based on the hour provided in this filter.</li>
-    <li><b>Hour Unread:</b>  Hour of examination start date.</li>
-    <li><b>Measure:</b>  Parameter for categorizing measures into Exam Count, EVU and RVU.</li>
-    <li><b>Radiologist Category:</b>  Breaks radiologists into general and surgical radiologists based on the radiologist’s categorization in the radiologist information table. Note: surgical radiologists are primarily neuro and vascular radiologists.</li>
-    <li><b>Site Code:</b>  Filter data by the site codes to look only at desired locations.</li>
-    <li><b>Order Priority:</b>  Filter data by Routine, Stat or Others.</li>
-    <li><b>Visit Class:</b>  Filter data by Visit Class.</li>
-    <li><b>Patient Class:</b>  Filter data by Emergency, In patient or Out patient.</li>
-    <li><b>Procedure Modality:</b>  Filter data by modality.</li>
-    <li><b>Turnaround Hour:</b>  Time taken in hours for exams to dictate.</li>
-    <li><b>Rollover Ratio:</b>  This is calculated by ‘rollovers produced in a day / rollovers given to that day’.</li>
-    <li><b>Shift By Hour:</b>  A day is categorized into three shifts based on the time as below,</li>
+        Following are the details of important data fields used in this report,
         <ul>
-            <li>First: 8 AM to 4 PM
-            <li>Second: 5 PM to 10 PM
-            <li>Third: 11 PM to 7 AM
+            <li><b>Rollover:</b> Exams whose exam and dictation timeline span more than a single day.</li>
+            <li><b>Not Rollover:</b> Exams created and dictated on the same day.</b></li>
+            <li><b>Date Of Exam: </b> Date on which exam occurs, should coincide with images being obtained.</li>
+            <li><b>Exam Count: </b> Count of total number of exams in a day.</li>
+            <li><b>EVU:</b>  Lucid assigned EVU.</li>
+            <li><b>RVU:</b>  US Medicare assigned RVU.</li>
+            <li><b>Rollover View:</b>  Parameter to set if Creation View or Dictation View is selected.</li>
+            <li><b>Rollover View Date:</b>  Calculated date based on Rollover View parameter, In case of Creation View, the filter will work based on the Exam Date, similarly in case of Dictation View it will be the Dictation Date.</li>
+            <li><b>Reference Hour:</b>  Hour at which a scheduled ‘day’ ends.</li>
+            <li><b>Hour Unread:</b>  Hour of examination start date.</li>
+            <li><b>Measure:</b>  Parameter for selecting between measures - Exam Count, EVU, and RVU.</li>
+            <li><b>Board Certification:</b>  General board certification filter, divides radiologists into general and surgical radiologists based on the radiologist’s categorization in the radiologist information table.</li>
+            <li><b>Site Code:</b>  Filter data by the site codes to look only at desired locations.</li>
+            <li><b>Order Priority:</b>  Filter data by Routine, Stat or Others.</li>
+            <li><b>Visit Class:</b>  Filter data by Visit Class.</li>
+            <li><b>Patient Class:</b>  Filter data by Emergency, In patient or Out patient.</li>
+            <li><b>Procedure Modality:</b>  Filter data by modality.</li>
+            <li><b>Turnaround Hour:</b>  Time taken in hours from when an exam is unread till dictated.</li>
+            <li><b>Rollover Ratio:</b>  Ratio of ‘rollovers produced in a day / rollovers given to that day’. Positive numbers indicate a day produced more rollovers than were passed on to it.</li>
+            <li><b>Shift By Hour:</b>  A day is categorized into three shifts based on the time as below:</li>
+            <ul>
+                <li>First: 8 AM to 4 PM
+                <li>Second: 5 PM to 10 PM
+                <li>Third: 11 PM to 7 AM
+            </ul>
         </ul>
-    </ul>
     </p>
 
     <p>
-    Following are the dashboards in this release:
+        Following are the dashboards in this release:
     </p>
     <p>
-    <b><font size="4">Daily Rollover Report </font></b> 
-    <br>&emsp;
-        This report focuses on total number of roll over exams and not rollover exams produced in a day. The report showing in two tables first one is in Creation View and other one is in Dictation View.
-        The filters applicable in this report are Reference Hour, Date Of Exam, Week Day, Is Rollover, Radiologist Category, Hour Unread, Site Code, Order Priority, Visit Class and Procedure Modality.
+        <b><font size="4">Daily Rollover Report </font></b>
+        <br>&emsp;
+        This is a tabular representation of the data. This report focuses on total number of rollover exams produced in a day. The report showing in two tables first one is in Creation 
+        View and other one is in Dictation View. The filters applicable in this report are Reference Hour, Date Of Exam, Week Day, Is Rollover, Radiologist Category, Hour Unread, 
+        Site Code, Order Priority, Visit Class and Procedure Modality.
     </p>
     <p>
-    <b><font size="4">Daily Rollover Plots</font></b> 
-    <br>&emsp;
+        <b><font size="4">Daily Rollover Plots</font></b>
+        <br>&emsp;
         This dashboard looks at the rollover exams via three charts,
-        <li><b>Rollover Trends: </b>This chart is located at top and will look at the trend of rollover exams, this will plot the rollover exam count for each day within the within the given date range.</li>
-        <li><b>Stacked View: </b>The bottom left chart and shows a stacked view of exams within the given date range, rollover and not rollover exams are split by colour.</li>
-        <li><b>Rollover Severity: </b>The bottom right chart and focus on turnaround hours taken by rollover exams, this will show a box plot for each day within the given date range. This will also highlight the rollover exams which are not dictated yet.</li>
-    <br>
+        <li><b>Rollover Trends: </b>This chart is located at top and will look at the trend of rollover exams, this will plot the rollover exam count 
+        for each day within the within the given date range.</li>
+        <li><b>Stacked View: </b>The bottom left chart and shows a stacked view of exams within the given date range, rollover and not rollover exams are split by color.</li>
+        <li><b>Rollover Severity: </b>The bottom right chart and focus on turnaround hours taken by rollover exams, 
+        this will show a box plot for each day within the given date range. This will also highlight the rollover exams which are not dictated yet.</li>
+        <br>
         All filters described in above in Daily Rollover Report is also applicable in in this report, 
         Additional filters used in the report are Rollover View for changing the view and Measure to select which measure is displayed on the report.
     </p>
     <p>
-    <b><font size="4">Rollover Ratio</font></b> 
-    <br>&emsp;
+        <b><font size="4">Rollover Ratio</font></b>
+        <br>&emsp;
         This dashboard looks at the ratio of rollover exams via three charts,
         <li><b>Rollover Ratio:  </b>This chart is located at top and it will look at the ratio of rollovers given in a day and those produced.</li>
         <li><b>Rollover Per Hour: </b>The bottom left chart and will look at the rollover exams based on the hour shifts.</li>
         <li><b>Rollover Per Shift:  </b>The bottom right chart and will show rollover exam count in each shift.</li>
         <br>
-        All filters in Daily Rollover Plots is also applicable in in this report. 
+        All filters in Daily Rollover Plots is also applicable in in this report.
         An additional filter ‘Rollover Count’ is used in this dashboard to set a minimum rollover count to be included in the report.
-      </p>
+    </p>
 
 </body>
 </html>
