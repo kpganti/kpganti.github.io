@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Operational Reports</title>
+</head>
+<body style="font-family:'Times New Roman', Times, serif; font-size: small; color:steelblue">
+    <p style="text-align:center;">
+        <font size="6">
+            Operational Reports
+        </font><br>
+        <font size="3">version 1.0</font>
+    </p>
+
+    <p>
+        &emsp;This set of dashboards focus on the current workload of the scheduled radiologists across Lucid practices. Data are extracted from the RadAssist worklist API every minute. Each practice is pulled from its own unique worklist and decorated with that information. Data are stored in the system for 8 hours and then cleared to keep the report highly agile.
+        <br><br>The following are the dashboards in this release:
+    </p>
+    <p>
+        &emsp;<b><font size="4">Current Worklist Overview:</font></b>
+        <br> &emsp;This dashboard focuses on exams that have not been finalized but exist in the system. It gives numbers and details about those exams as well as some trending information derived from them. There are three tables (referred to as top, middle and bottom) and two rows of plots (referred to by top and bottom). <i>Note: In this report, exams that have a null modality, a modality of BD, 3D renderings, or CV IR studies are suppressed and will not be reflected in the numbers.</i>
+
+        <br><br>&emsp;The top and middle tables report the number of studies available in each the respective categories. Stat and Routine cases are separated by column and the rows feature modalities and patient classes in the top and middle tables respectively. Numbers are color coded so that the largest bin of exams is red and the smallest green with the numbers between the gradually moving through this color space. Grand totals are provided for rows and columns, these are not included in the color scale. Selecting a number in either of these fields will bring up the corresponding exams in the bottom table. Multiple numbers can be selected. <i>Note: The Grand total columns do not follow this behavior but will all act in a manner to show ever exam in the bottom table.</i>
+        <br><br>&emsp;The bottom table displays a summary of available information about the selected exams. When a radiologist opens or reserves an exam, this will be reflected in the User Name and the Lock Reason fields. If the numbers in this table are not aligned with the top or middle table data should be refreshed.
+        <br><br>&emsp;The top row of plots displays the Average Turnaround time, in hours, for exams in the Stat and Routine categories (left and right respectively). The three patient classes are represented by separate lines in these plots. The bottom row of the plots features the trend of the power ratio, the number of exams to read over the number of radiologists reading, derived from these data.
+    </p>
+    <p>
+        &emsp;
+        <b>
+            <font size="4">
+                Site:
+            </font>
+        </b><br>&emsp;This table breaks down the exams available to be read by site and facility where the exams are to be read. The Stat and Routine exams are still plotted as different columns. Selecting a filled of data will return the user to the Current Worklist Overview with the select exams featured in the bottom table. Table kept on separate page due to size constraints.
+    </p>
+    <p>
+        &emsp;
+        <b>
+            <font size="4">
+                RadAssist Worklist Status:
+            </font>
+        </b><br>&emsp;This dashboard presents the Worklist report Ron previously built. This tracks the average counts of exams for selected work lists. These are not identical mappings to the lists in the Current Worklist Overview.
+    </p>
+    </body>
+</html>
